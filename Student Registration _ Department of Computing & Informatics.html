@@ -73,9 +73,7 @@
             margin-bottom: 8px;
         }
 
-        input[type="text"],
-        input[type="email"],
-        select {
+        input[type=text], input[type=email], select {
             width: 100%;
             padding: 13px;
             border: 2px solid #e2e8f0;
@@ -86,9 +84,7 @@
             font-family: inherit;
         }
 
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        select:focus {
+        input[type=text]:focus, input[type=email]:focus, select:focus {
             border-color: var(--bu-red);
             outline: none;
             box-shadow: 0 0 0 3px rgba(26, 58, 138, 0.08);
@@ -128,7 +124,7 @@
             gap: 10px;
         }
 
-        .course-item input[type="checkbox"] {
+        .course-item input[type=checkbox] {
             accent-color: var(--bu-blue);
         }
 
@@ -161,6 +157,12 @@
                 margin-top: 0;
             }
         }
+    .auto-style1 {
+	color: #EA4335;
+}
+.auto-style2 {
+	color: #1DA1F2;
+}
     </style>
 </head>
 
@@ -222,8 +224,8 @@
     <div class="registration-card">
         <div class="form-header">
             <img src="./Student Registration _ Department of Computing &amp; Informatics_files/logoBU.jpg" alt="Logo" style="width: 80px; margin-bottom: 5px;">
-            <h1>Student Registration Form</h1>
-            <p>Department of Computing and Informatics</p>
+            <h1 class="auto-style1">Student Registration Form</h1>
+            <p class="auto-style2">Department of Computing and Informatics</p>
 
             <div style="margin-top: 20px;">
                 <button type="button" class="submit-btn" style="width: auto; padding: 10px 20px; font-size: 0.9rem;" onclick="window.print()">
@@ -264,7 +266,7 @@
             <div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
                 <div style="width: 100%;">
                     <label>Degree Programme</label>
-                    <select id="programmeSelect" required="">
+                    <select id="programmeSelect" required="" class="auto-style2">
                         <option value="" disabled="" selected="">Select your course</option>
                         <option>B.Sc. Software Engineering</option>
                         <option>Bachelor of Records and Archives Management</option>
@@ -280,7 +282,7 @@
                 </div>
                 <div style="flex: 1;">
                     <label>Current Semester</label>
-                    <select id="semesterSelect" required="">
+                    <select id="semesterSelect" required="" class="auto-style2">
                         <option value="" disabled="" selected="">Select Level</option>
                         <option>Year 1, Sem I</option>
                         <option>Year 1, Sem II</option>
@@ -301,7 +303,8 @@
                 </div>
             </div>
 
-            <div id="courseGrid" class="course-grid"><div style="grid-column: 1/-1; text-align:center; padding:20px; color:#64748b;">Please select both Programme and Semester level to see units.</div></div>
+            <div id="courseGrid" class="course-grid">
+				<div style="grid-column: 1/-1; text-align:center; padding:20px; " class="auto-style2">Please select both Programme and Semester level to see units.</div></div>
 
             <button type="submit" class="submit-btn" style="margin-top: 25px;"><i class="fas fa-check-circle" style="margin-right: 10px;"></i>Complete</button>
         </form>
