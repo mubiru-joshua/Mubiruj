@@ -1,18 +1,21 @@
-// ===== Dropdown Menu Functionality =====
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ==============================
+    // Dropdown Menu Functionality
+    // ==============================
     const dropdowns = document.querySelectorAll('.dropdown');
 
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector('.dropdown-btn');
         if (!btn) return;
 
-        btn.addEventListener('click', function (e) {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
 
-            dropdowns.forEach(otherDropdown => {
-                if (otherDropdown !== dropdown) {
-                    otherDropdown.classList.remove('show');
+            dropdowns.forEach(other => {
+                if (other !== dropdown) {
+                    other.classList.remove('show');
                 }
             });
 
@@ -20,47 +23,72 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (e) {
+    // Close dropdown outside click
+    document.addEventListener('click', (e) => {
         if (!e.target.closest('.dropdown')) {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('show');
-            });
+            dropdowns.forEach(d => d.classList.remove('show'));
         }
     });
 
-    // ===== Navbar Scroll Effect =====
+    // ==============================
+    // Navbar Scroll Effect
+    // ==============================
     const nav = document.querySelector('nav');
-    const header = document.querySelector('header') || document.querySelector('.page-hero') || document.querySelector('[class*="hero"]');
+    const header =
+        document.querySelector('header') ||
+        document.querySelector('.page-hero') ||
+        document.querySelector('[class*="hero"]');
 
     if (nav) {
+
         const updateNavBackground = () => {
-            if (header) {
-                const headerBottom = header.getBoundingClientRect().bottom;
-                nav.classList.toggle('scrolled', headerBottom <= 0);
-            } else {
+            if (!header) {
                 nav.classList.add('scrolled');
+                return;
             }
+
+            const headerBottom = header.getBoundingClientRect().bottom;
+            nav.classList.toggle('scrolled', headerBottom <= 0);
         };
 
         updateNavBackground();
-        window.addEventListener('scroll', updateNavBackground);
+
+        // ✅ PERFORMANCE FIX (scroll throttling)
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateNavBackground();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
         window.addEventListener('resize', updateNavBackground);
     }
 
-    // ===== Theme Engine (Dark/Light Mode) =====
+    // ==============================
+    // Theme Engine (Dark/Light)
+    // ==============================
     const themeBtn = document.createElement('div');
     themeBtn.className = 'theme-toggle';
     themeBtn.innerHTML = '<i class="fas fa-moon" id="theme-icon"></i>';
     document.body.appendChild(themeBtn);
 
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme');
+    const currentTheme =
+        savedTheme ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light');
+
     document.documentElement.setAttribute('data-theme', currentTheme);
     updateThemeIcon(currentTheme);
 
     themeBtn.addEventListener('click', () => {
-        let theme = document.documentElement.getAttribute('data-theme');
-        let newTheme = theme === 'light' ? 'dark' : 'light';
+        const theme = document.documentElement.getAttribute('data-theme');
+        const newTheme = theme === 'light' ? 'dark' : 'light';
 
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
@@ -69,23 +97,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateThemeIcon(theme) {
         const icon = document.getElementById('theme-icon');
-        if (icon) {
-            icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-        }
+        if (!icon) return;
+
+        icon.className =
+            theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
     }
 
-    // ===== Security Sanitizer (XSS Protection) =====
-    function sanitizeInput(text) {
+    // ==============================
+    // Security Sanitizer (Reusable)
+    // ==============================
+    function sanitizeInput(text = '') {
         const div = document.createElement('div');
         div.textContent = text;
-        return div.innerHTML; // Converts <script> to &lt;script&gt;
+        return div.innerHTML;
     }
 
-    // ===== Global Form Handler (Optional) =====
-    // No specific contact form handling needed as contact.html was removed.
-    // Navigation to socials is now handled via #contact anchor tag in HTML.
-
-    // ===== Scroll-to-Top Button (RESTORED) =====
+    // ==============================
+    // Scroll-to-Top Button
+    // ==============================
     const scrollBtn = document.createElement('button');
     scrollBtn.className = 'scroll-top-btn';
     scrollBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
@@ -99,83 +128,113 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    // ===== Dynamic Course Unit System (Embedded DB for Local Reliability) =====
+
+    // ==============================
+    // Dynamic Course Unit System
+    // ==============================
     const progSelect = document.getElementById('programmeSelect');
     const semSelect = document.getElementById('semesterSelect');
     const courseGrid = document.getElementById('courseGrid');
     const totalCreditsSpan = document.getElementById('totalCredits');
 
     let coursesData = {};
-    let updateGrid;
 
     async function loadCoursesData() {
         try {
             const response = await fetch('./courses.json');
+
             if (!response.ok) {
-                throw new Error(`Failed to load courses.json: ${response.status}`);
+                throw new Error(`HTTP ${response.status}`);
             }
+
             coursesData = await response.json();
-            if (typeof updateGrid === 'function') {
-                updateGrid();
-            }
-        } catch (error) {
-            console.error('Unable to load courses.json', error);
+            updateGrid();
+
+        } catch (err) {
+            console.error('Unable to load courses.json', err);
+
             if (courseGrid) {
-                courseGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:20px; color:#ef4444; font-weight:600;">Unable to load course data from courses.json.</div>`;
+                courseGrid.innerHTML = `
+                    <div class="error-message">
+                        Unable to load course data.
+                    </div>`;
             }
         }
     }
 
-    if (progSelect && semSelect && courseGrid) {
-        updateGrid = () => {
-            const prog = progSelect.value;
-            const sem = semSelect.value;
+    function calculateCredits() {
+        let total = 0;
 
-            // Need both selections to fetch
-            if (!prog || !sem) {
-                courseGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:20px; color:#64748b;">Please select both Programme and Semester level to see units.</div>`;
-                return;
-            }
-
-            const units = coursesData[prog]?.[sem] || [];
-            courseGrid.innerHTML = '';
-
-            if (units.length === 0) {
-                courseGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:20px; color:#ef4444; font-weight:600;">No units found for ${prog} - ${sem}.</div>`;
-                return;
-            }
-
-            units.forEach(unit => {
-                const div = document.createElement('div');
-                div.className = 'course-item';
-                div.innerHTML = `
-                    <input type="checkbox" class="course-check" data-credits="${unit.credits}" checked>
-                    <div style="display:flex; flex-direction:column;">
-                        <strong style="color:var(--bu-blue);">${unit.code}</strong>
-                        <span style="font-size:0.8rem; font-weight:600;">${unit.name} (${unit.credits} CU)</span>
-                    </div>
-                `;
-                courseGrid.appendChild(div);
+        document
+            .querySelectorAll('.course-check:checked')
+            .forEach(check => {
+                total += Number(check.dataset.credits || 0);
             });
 
-            calculateCredits();
+        totalCreditsSpan.textContent = total;
+    }
 
-            document.querySelectorAll('.course-check').forEach(check => {
-                check.addEventListener('change', calculateCredits);
-            });
-        };
+    function updateGrid() {
 
-        function calculateCredits() {
-            let total = 0;
-            document.querySelectorAll('.course-check:checked').forEach(check => {
-                total += parseFloat(check.getAttribute('data-credits') || 0);
-            });
-            totalCreditsSpan.textContent = total;
+        if (!progSelect || !semSelect || !courseGrid) return;
+
+        const prog = progSelect.value;
+        const sem = semSelect.value;
+
+        if (!prog || !sem) {
+            courseGrid.innerHTML = `
+                <div class="info-message">
+                    Please select Programme and Semester.
+                </div>`;
+            return;
         }
 
+        const units = coursesData?.[prog]?.[sem] ?? [];
+        courseGrid.innerHTML = '';
+
+        if (!units.length) {
+            courseGrid.innerHTML = `
+                <div class="error-message">
+                    No units found for ${sanitizeInput(prog)} - ${sanitizeInput(sem)}.
+                </div>`;
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        units.forEach(unit => {
+            const div = document.createElement('div');
+            div.className = 'course-item';
+
+            div.innerHTML = `
+                <input type="checkbox"
+                       class="course-check"
+                       data-credits="${unit.credits}"
+                       checked>
+
+                <div class="course-info">
+                    <strong>${sanitizeInput(unit.code)}</strong>
+                    <span>${sanitizeInput(unit.name)} (${unit.credits} CU)</span>
+                </div>
+            `;
+
+            fragment.appendChild(div);
+        });
+
+        courseGrid.appendChild(fragment);
+
+        calculateCredits();
+
+        courseGrid
+            .querySelectorAll('.course-check')
+            .forEach(check =>
+                check.addEventListener('change', calculateCredits)
+            );
+    }
+
+    if (progSelect && semSelect && courseGrid) {
         progSelect.addEventListener('change', updateGrid);
         semSelect.addEventListener('change', updateGrid);
-
         loadCoursesData();
     }
 });
