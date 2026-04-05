@@ -1,242 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dept of Computing & Informatics | Bugema University</title>
-
-<meta name="description"
-content="Welcome to Bugema University's Department of Computing & Informatics — excellence in Christian education, innovation, and technology.">
-
-<link rel="stylesheet" href="index_files/all.min.css">
-<link rel="stylesheet" href="index_files/styles.css">
-
-<style>
-
-/* ================= HERO SLIDESHOW ================= */
-
-@keyframes slideShow {
-    0%,30% { background-image:url('1.jpg'); }
-    33%,63% { background-image:url('2.jpg'); }
-    66%,100% { background-image:url('image.png'); }
-}
-
-.home-hero {
-    width:100%;
-    padding:100px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    background-color:#0f172a;
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    animation:slideShow 12s infinite ease-in-out;
-    position:relative;
-}
-
-/* overlay for readability */
-.home-hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.45);
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    padding:40px 20px 50px;
-    max-width:800px;
-    animation:fadeInUp 1.2s ease-out forwards;
-}
-
-.hero-content h1{
-    font-size:clamp(2.4rem,5vw,3.2rem);
-    margin-bottom:16px;
-    font-weight:800;
-    letter-spacing:-0.8px;
-    text-shadow:0 2px 18px rgba(0,0,0,0.25);
-}
-
-.hero-content p{
-    max-width:700px;
-    margin:auto;
-    font-size:clamp(1rem,2.2vw,1.15rem);
-    color:rgba(240,240,240,0.95);
-    line-height:1.7;
-}
-
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:35px;
-    flex-wrap:wrap;
-}
-
-@media (max-width:768px){
-.hero-content h1{font-size:2.2rem;}
-.hero-content p{font-size:1.1rem;}
-}
-
-.auto-style1{color:#EA4335;}
-.auto-style2{color:#1DA1F2;}
-.auto-style3{
-color:#EA4335;
-font-size:0.9rem;
-line-height:1.6;
-opacity:0.95;
-margin-bottom:15px;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mjns ICT Center Restaurant - Home</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <!-- my header -->
+    <header>
+        <a class="brand-name" href="index.html">MJNS ICT Center Restaurant</a>
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </header>
 
-<!-- ================= NAVIGATION ================= -->
+    <!-- main content -->
+    <main>
+        <h1><marquee>Welcome</marquee></h1>
+    </main>
 
-<nav role="navigation" aria-label="Main Navigation">
-
-<div class="top-bar">
-<div class="logo-container">
-<img src="index_files/logoBU.jpg" alt="Bugema University Logo">
-
-<div class="logo-text">
-<h1>Bugema University</h1>
-<p>Excellence In Service</p>
-</div>
-</div>
-</div>
-
-<div class="bottom-bar">
-<div class="nav-links">
-
-<a href="index.html" class="active">Home</a>
-<a href="about.html">About</a>
-<a href="programs.html">Programs</a>
-<a href="admissions.html">Admissions</a>
-<a href="registrationForm.html">Register</a>
-<a href="#contact">Contact</a>
-
-<div class="dropdown">
-<button class="dropdown-btn">
-More <i class="fas fa-chevron-down"></i>
-</button>
-
-<div class="dropdown-content">
-<a href="research.html">Research</a>
-<a href="news.html">News & Events</a>
-<a href="list.html">Online Portal</a>
-<a href="alumni.html">Alumni</a>
-</div>
-</div>
-
-</div>
-</div>
-</nav>
-
-<!-- ================= HERO ================= -->
-
-<header class="home-hero">
-
-<div class="hero-content">
-
-<h1>Department of Computing &amp; Informatics</h1>
-
-<p>
-Excellence in technological innovation and Christian Education at
-Bugema University. Equipping the next generation of software engineers
-and IT professionals.
-</p>
-
-<div class="hero-buttons">
-<a href="programs.html" class="register-btn">Explore Programs</a>
-<a href="admissions.html" class="register-btn">Apply Now</a>
-</div>
-
-</div>
-</header>
-
-<!-- ================= DEAN SECTION ================= -->
-
-<section class="university-section">
-
-<div class="university-card">
-
-<div style="flex:1;min-width:250px;text-align:center;">
-
-<div style="width:200px;height:200px;border-radius:50%;
-border:5px solid var(--bu-blue);
-margin:0 auto 20px;overflow:hidden;
-box-shadow:0 10px 30px var(--shadow-blue);
-background:var(--light-blue);
-display:flex;align-items:center;justify-content:center;">
-
-<img src="nagonvuma.png"
-alt="Dr Margaret Nagonvuma, Dean School of Computing"
-style="width:100%;height:100%;object-fit:cover;">
-</div>
-
-<h3 class="auto-style1">Dr. Margaret Nagonvuma</h3>
-
-<p class="auto-style2">
-Dean, School of Computing
-</p>
-
-</div>
-
-<div class="hod-body" style="flex:2;min-width:350px;">
-
-<h2>Message from the Dean</h2>
-
-<div class="dean-message quote" style="color:#EA4335">
-"Welcome to the School of Computing at Bugema University.
-Our mission is to empower students with cutting-edge
-technical skills rooted in strong ethical and Christian values."
-</div>
-
-<p class="auto-style3">
-Whether you aspire to be a software engineer, a data scientist,
-or an IT leader, our programs provide the foundation needed
-to innovate and succeed globally.
-</p>
-
-<a href="about.html" class="register-btn"
-style="border:none;background:var(--bu-blue);color:white;">
-More
-</a>
-
-</div>
-</div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="site-footer">
-
-<div class="footer-bottom">
-<p>
-© <span id="year"></span>
-Bugema University - Dept of Computing & Informatics.
-All Rights Reserved.
-</p>
-</div>
-
-</footer>
-
-<script src="index_files/script.js"></script>
-
-<script>
-/* auto year */
-document.getElementById("year").textContent =
-new Date().getFullYear();
-</script>
-
+    <!-- footer -->
+    <footer>
+        <p>Tel: +256-000-0000 | Email: mjnsictcenter@gmail.com</p>
+        <p>&copy; Mjns ICT Center Restaurant 2024</p>
+    </footer>
 </body>
 </html>
