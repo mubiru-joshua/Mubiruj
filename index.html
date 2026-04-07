@@ -1,32 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0065)https://bugema-univ-departmentof-computinga.vercel.app/index.html -->
+<html lang="en" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mjns ICT Center Restaurant - Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Dept of Computing &amp; Informatics | Bugema University</title>
+    <meta name="description" content="Welcome to Bugema University&#39;s Department of Computing &amp; Informatics — excellence in Christian education, innovation, and technology.">
+    <link rel="stylesheet" href="./index_files/all.min.css">
+    <link rel="stylesheet" href="./index_files/styles.css">
+    <style>
+        @keyframes slideShow {
+
+            0%,
+            30% {
+                background-image: url('1.jpg');
+            }
+
+            33%,
+            63% {
+                background-image: url('2.jpg');
+            }
+
+            66%,
+            100% {
+                background-image: url('image.png');
+            }
+        }
+
+        .home-hero {
+            width: 100%;
+            margin-top: 0;
+            position: relative;
+            min-height: auto;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-color: #0f172a;
+            background-size: contain;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-image: url('1.jpg');
+            animation: slideShow 12s infinite ease-in-out;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px 50px;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.4rem, 5vw, 3.2rem);
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-content p {
+            max-width: 700px;
+            margin: auto;
+            font-size: clamp(1rem, 2.2vw, 1.15rem);
+            color: rgba(240, 240, 240, 0.95);
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+    .auto-style1 {
+		color: #EA4335;
+	}
+	.auto-style2 {
+		color: #1DA1F2;
+	}
+	.auto-style3 {
+		color: #EA4335;
+		font-size: 0.9rem;
+		line-height: 1.6;
+		opacity: 0.95;
+		margin-bottom: 15px;
+	}
+    </style>
 </head>
+
 <body>
-    <!-- my header -->
-    <header>
-        <a class="brand-name" href="index.html">MJNS ICT Center Restaurant</a>
-        <ul>
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="services.html">Service</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
+
+    <nav aria-label="Main navigation">
+        <div class="top-bar">
+            <div class="logo-container">
+                <img src="./index_files/logoBU.jpg" alt="Bugema University Logo">
+                <div class="logo-text">
+                    <h1>Bugema University</h1>
+                    <p>Excellence In Service</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <div class="nav-links">
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/index.html" class="active">Home</a>
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/about.html">About</a>
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/programs.html">Programs</a>
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/admissions.html">Admissions</a>
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/registrationForm.html">Register</a>
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/index.html#contact">Contact</a>
+                <div class="dropdown">
+                    <button class="dropdown-btn">More <i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="https://bugema-univ-departmentof-computinga.vercel.app/research.html">Research</a>
+                        <a href="https://bugema-univ-departmentof-computinga.vercel.app/news.html">News &amp; Events</a>
+                        <a href="https://bugema-univ-departmentof-computinga.vercel.app/list.html">Online Portal</a>
+                        <a href="https://bugema-univ-departmentof-computinga.vercel.app/alumni.html">Alumni</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="news-ticker">
+        <div class="ticker-label">Latest Updates</div>
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                <span class="ticker-item"><i class="fas fa-bullhorn"></i> Registration for 2026 Academic Year is now
+                    officially OPEN!</span>
+                <span class="ticker-item"><i class="fas fa-microchip"></i> New Advanced Artificial Intelligence Lab now
+                    fully Operational.</span>
+                <span class="ticker-item"><i class="fas fa-graduation-cap"></i> Congratulations to our 50 candidates for
+                    the 2026 Dean's List!</span>
+                <span class="ticker-item"><i class="fas fa-calendar-check"></i> Guest Lecture: "The Future of Cloud
+                    Computing" - Friday 10:00 AM.</span>
+                <span class="ticker-item"><i class="fas fa-university"></i> Bugema University ranked #1 in Innovation
+                    for the 2026 Region Awards.</span>
+            </div>
+        </div>
+    </div>
+    <header class="home-hero">
+        <div class="hero-content" style="left: -1px; top: 12px; height: 136px">
+            <h1 style="font-size: 3.5rem;">Department of Computing s<br>&amp; Informatics</h1>
+            <p>
+                Excellence in technological innovation and Christian Education at Bugema University. Equipping the next
+                generation of software engineers and IT professionals.
+            </p>
+
+        </div>
     </header>
 
-    <!-- main content -->
-    <main>
-        <h1><marquee>Welcome</marquee></h1>
-    </main>
 
-    <!-- footer -->
-    <footer>
-        <p>Tel: +256-000-0000 | Email: mjnsictcenter@gmail.com</p>
-        <p>&copy; Mjns ICT Center Restaurant 2024</p>
+
+    <section class="university-section">
+        <div class="university-card">
+            <div style="flex: 1; min-width: 250px; text-align: center;">
+                <div style="width: 200px; height: 200px; border-radius: 50%; border: 5px solid var(--bu-blue); margin: 0 auto 20px; overflow: hidden; box-shadow: 0 10px 30px var(--shadow-blue); background: var(--light-blue); display: flex; align-items: center; justify-content: center;">
+                    <img src="./index_files/nagonvuma.png" alt="Dean Margaret Nagonvuma" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="color: var(--bu-blue); margin: 0; font-size: 1.4rem; font-weight: 800;" class="auto-style1">Dr. Margaret
+                    Nagonvuma</h3>
+                <p style="margin: 8px 0 0; color: var(--bu-blue-light); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;" class="auto-style2">
+                    Dean, School of Computing</p>
+            </div>
+            <div class="hod-body" style="flex: 2; min-width: 350px;">
+                <h2>Message from the Dean</h2>
+                <div class="dean-message quote" style="color: #EA4335">
+                    "Welcome to the School of Computing at Bugema University. As technology continues to rapidly shape
+                    our modern world, our mission is to empower students with cutting-edge technical skills rooted in
+                    strong ethical and Christian values."
+                </div>
+                <p class="auto-style3">
+                    Whether you aspire to be a software engineer, a data scientist, or an IT leader, our dedicated
+                    faculty and comprehensive programs are designed to provide you with the robust foundation needed to
+                    innovate and succeed on a global scale. We invite you to join our vibrant academic community.
+                </p>
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/about.html" class="register-btn" style="border: none; background: var(--bu-blue); color: white !important; box-shadow: 0 10px 25px var(--shadow-blue);">more</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 80px 20px; background: linear-gradient(135deg, #e8eef8 0%, #f8f9fa 100%);">
+        <div style="max-width: 1100px; margin: auto; text-align: center;">
+            <h2 style="color: var(--text-primary); font-size: 2.2rem; margin-bottom: 20px; font-weight: 800;">Explore
+                Our
+                Department</h2>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 120px;">Discover our academic programs, admissions
+                process, and campus life</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="value-card" style="border-top-color: var(--bu-blue);">
+                    <i class="fas fa-graduation-cap" style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 20px;"></i>
+                    <h3>Academic Programs</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Explore our diverse range of
+                        undergraduate and postgraduate programs designed to prepare you for success.</p>
+                    <a href="https://bugema-univ-departmentof-computinga.vercel.app/programs.html" style="color: var(--accent-blue); text-decoration: none; font-weight: bold;">Learn More →</a>
+                </div>
+
+                <div class="value-card" style="border-top-color: var(--accent-blue);">
+                    <i class="fas fa-clipboard-list" style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 20px;"></i>
+                    <h3>Admissions</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Join our community of scholars. Learn
+                        about admission requirements and application procedures.</p>
+                    <a href="https://bugema-univ-departmentof-computinga.vercel.app/admissions.html" style="color: var(--accent-blue); text-decoration: none; font-weight: bold;">Apply Now →</a>
+                </div>
+
+                <div class="value-card" style="border-top-color: var(--bu-blue-light);">
+                    <i class="fas fa-newspaper" style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 20px;"></i>
+                    <h3>News &amp; Events</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Stay updated with the latest news,
+                        events, and announcements from Bugema University.</p>
+                    <a href="https://bugema-univ-departmentof-computinga.vercel.app/news.html" style="color: var(--accent-blue); text-decoration: none; font-weight: bold;">Read
+                        More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand" style="display: flex; align-items: center; margin-bottom: 25px;">
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.1rem; letter-spacing: 1px; color: var(--bu-blue);">BUGEMA
+                        </h3>
+                        <p style="margin: 0; font-size: 0.8rem; color: rgba(255,255,255,0.7); font-weight: bold; text-transform: uppercase;">
+                            University</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.92rem; line-height: 1.8; opacity: 0.6; margin-bottom: 20px;">
+                    Excellence in Service. Empowering the next generation of tech leaders through quality computing
+                    education and Christian values.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-heading">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/index.html">Home Page</a></li>
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/about.html">About the Dept</a></li>
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/programs.html">Programs</a></li>
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/index.html#contact">Contact &amp; Support</a></li>
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/registrationForm.html">Register Online</a></li>
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/admissionform.html">Apply for Admission</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Help Center</h4>
+                <ul class="footer-links">
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/admissions.html">How to Register</a></li>
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/list.html">Student Help Desk</a></li>
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/feedback.html">Submit Feedback</a></li>
+                    <li><a href="https://bugema-univ-departmentof-computinga.vercel.app/research.html">FAQs &amp; Research</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading" id="contact">Stay Connected</h4>
+                <div style="display: flex; gap: 12px; margin-bottom: 25px;">
+                    <a href="https://wa.me/256709749084" target="_blank" class="social-icon whatsapp" title="WhatsApp Us"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:info@bugemauniv.ac.ug" class="social-icon email" title="Email Us"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.google.com/maps/place/Bugema+University" target="_blank" class="social-icon location" title="Our Location"><i class="fas fa-map-marker-alt"></i></a>
+                </div>
+                <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6;">Follow our official
+                    channels for real-time
+                    updates on campus events and IT workshops.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bugema University - Dept of Computing &amp; Informatics. All Rights Reserved.</p>
+            <div style="display: flex; gap: 25px;">
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/index.html#">Privacy Policy</a>
+                <a href="https://bugema-univ-departmentof-computinga.vercel.app/index.html#">Cookie Settings</a>
+            </div>
+        </div>
     </footer>
-</body>
-</html>
+
+    <script src="./index_files/script.js.download"></script>
+
+
+<div class="theme-toggle"><i class="fas fa-moon" id="theme-icon"></i></div><button class="scroll-top-btn" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button></body></html>
